@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const morgan = require("morgan");
 const api = require("./routes/api");
 const app = express();
@@ -12,7 +13,13 @@ app.use(
 
 app.use(morgan("combined"));
 app.use(express.json());
-
+// Serve the React build files
+app.use(express.static(path.join(__dirname, "..", "..", "client", "build")));
 app.use("/v1", api);
+app.use((req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "..", "client", "build", "index.html")
+  );
+});
 
 module.exports = app;
