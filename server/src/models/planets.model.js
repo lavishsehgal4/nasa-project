@@ -13,7 +13,7 @@ function isHabitablePlanet(planet) {
 }
 
 function loadPlanetsData() {
-  constpromise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     fs.createReadStream(
       path.join(__dirname, "..", "..", "data", "KeplerData.csv")
     )
