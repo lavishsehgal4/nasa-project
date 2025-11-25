@@ -26,5 +26,8 @@
   "homepage": "https://github.com/lavishsehgal4/nasa-project#readme",
   "devDependencies": {
     "concurrently": "^9.2.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }
